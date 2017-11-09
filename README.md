@@ -8,7 +8,7 @@
 
 
 # Frends.Community.ConvertToDynamic
-FRENDS Task to convert JSON or XML to CSV. Some Frends4 tasks already provide method .ToCSV() which does the same and this might be obsolete. 
+FRENDS Task to convert XmlString, XmlDocument, XDocument or JsonString to Dynamic. Some Frends4 tasks already do this and this might be obsolete.
 
 ## Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
