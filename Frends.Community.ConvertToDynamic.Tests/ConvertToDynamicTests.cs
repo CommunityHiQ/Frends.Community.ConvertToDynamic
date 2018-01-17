@@ -10,10 +10,10 @@ namespace Frends.Community.ConvertToDynamic.Tests
         [Test]
         public void TestConvertDynamicShouldReturnValue()
         {
-            var par = new ConvertData.Parameters()
+            var par = new Parameters()
             {
                 Input = "<Contract><StartDate>2006-08-30T00:00:00</StartDate></Contract>",
-                InputType = ConvertData.InputType.XmlString,
+                InputType = InputType.XmlString,
                 OptionalRootNameWhenConvertingFromJSON = ""
             };
             var result = ConvertData.ConvertToDynamic(par, new CancellationToken());
@@ -23,10 +23,10 @@ namespace Frends.Community.ConvertToDynamic.Tests
         [Test]
         public void TestConvertDynamicShouldReturnValueWithInputNamespace()
         {
-            var par = new ConvertData.Parameters()
+            var par = new Parameters()
             {
                 Input = "<v150:Contract xmlns:v150=\"http://schemas.forum.com/ForumService/V150\"><v150:StartDate>2006-08-30T00:00:00</v150:StartDate></v150:Contract>",
-                InputType = ConvertData.InputType.XmlString,
+                InputType = InputType.XmlString,
                 OptionalRootNameWhenConvertingFromJSON = ""
             };
             var result = ConvertData.ConvertToDynamic(par, new CancellationToken());
@@ -46,10 +46,10 @@ namespace Frends.Community.ConvertToDynamic.Tests
                                         }
                                     ]
                             }";
-            var par = new ConvertData.Parameters()
+            var par = new Parameters()
             {
                 Input = json,
-                InputType = ConvertData.InputType.JsonString,
+                InputType = InputType.JsonString,
                 OptionalRootNameWhenConvertingFromJSON = "root"
             };
 
@@ -66,10 +66,10 @@ namespace Frends.Community.ConvertToDynamic.Tests
                             ""foo2"": ""bar2""
                             }";
 
-            var par = new ConvertData.Parameters()
+            var par = new Parameters()
             {
                 Input = json,
-                InputType = ConvertData.InputType.JsonString,
+                InputType = InputType.JsonString,
                 OptionalRootNameWhenConvertingFromJSON = "root"
             };
 
