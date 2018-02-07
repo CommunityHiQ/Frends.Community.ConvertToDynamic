@@ -10,6 +10,8 @@ using System.Xml;
 using System.Xml.Linq;
 using Frends.Tasks.Attributes;
 
+#pragma warning disable 1591
+
 namespace Frends.Community.ConvertToDynamic
 {
     /// <summary>
