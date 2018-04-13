@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
-using Frends.Tasks.Attributes;
 
 #pragma warning disable 1591
 
@@ -40,7 +39,7 @@ namespace Frends.Community.ConvertToDynamic
         /// The alternative overload will add an additional root element which fixes error that occurs when the JSON has keyless array
         /// </summary>
         [DefaultValue("\"\"")]
-        [DefaultDisplayType(DisplayType.Text)]
+        [DisplayFormat(DataFormatString = "Text")]
         public string OptionalRootNameWhenConvertingFromJSON { get; set; }
     }
 
