@@ -1,59 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
+using Microsoft.CSharp; // You can remove this if you don't need dynamic type in .NET Standard frends Tasks
+using Newtonsoft.Json;
 
 #pragma warning disable 1591
 
 namespace Frends.Community.ConvertToDynamic
 {
-    /// <summary>
-    /// Defines the type of the input parameter   
-    /// </summary>
-    public enum InputType { XmlString, XmlDocument, XDocument, JsonString }
-
-    /// <summary>
-    /// Parameter class
-    /// </summary>
-    public class Parameters
-    {
-        /// <summary>
-        /// The input value that will be converted to dynamic.
-        /// </summary>
-        public dynamic Input { get; set; }
-
-        /// <summary>
-        /// Input value's data type
-        /// </summary>
-        [DisplayName("Input value's data type")]
-        public InputType InputType { get; set; }
-
-        /// <summary>
-        /// If this value is given, different overload of the JsonConvert.DeserializeXmlNode method will be used.
-        /// The alternative overload will add an additional root element which fixes error that occurs when the JSON has keyless array
-        /// </summary>
-        [DefaultValue("\"\"")]
-        [DisplayFormat(DataFormatString = "Text")]
-        public string OptionalRootNameWhenConvertingFromJSON { get; set; }
-    }
-
-    /// <summary>
-    /// Return object
-    /// </summary>
-    public class Output
-    {
-        /// <summary>
-        /// Result CSV
-        /// </summary>
-        public dynamic Result { get; set; }
-    }
-
     /// <summary>
     /// Main class
     /// </summary>
@@ -124,7 +83,7 @@ namespace Frends.Community.ConvertToDynamic
                 case InputType.XmlString:
                     inputDoc = XDocument.Parse(parameters.Input, LoadOptions.PreserveWhitespace);
                     ParseToDynamic(root, inputDoc.Elements().First(), cancellationToken);
-                    return new Output {Result = root};
+                    return new Output { Result = root };
                 case InputType.XmlDocument:
                     inputDoc = XDocument.Parse(parameters.Input.OuterXml, LoadOptions.PreserveWhitespace);
                     ParseToDynamic(root, inputDoc.Elements().First(), cancellationToken);
