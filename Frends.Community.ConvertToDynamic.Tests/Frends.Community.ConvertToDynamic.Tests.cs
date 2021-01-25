@@ -1,6 +1,6 @@
-﻿using System;
-using System.Threading;
 using NUnit.Framework;
+using System;
+using System.Threading;
 
 namespace Frends.Community.ConvertToDynamic.Tests
 {
@@ -32,7 +32,7 @@ namespace Frends.Community.ConvertToDynamic.Tests
             var result = ConvertData.ConvertToDynamic(par, new CancellationToken());
             Assert.IsTrue(result.Result.Contract.StartDate.Contains("2006-08-30T00:00:00"));
         }
-        
+
         [Test]
         public void JsonToDyn_arr()
         {
