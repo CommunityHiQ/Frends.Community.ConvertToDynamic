@@ -69,3 +69,4 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 | Version | Changes |
 | ------- | ------- |
 | 1.2.0  | Converted to support .Net Standard 2.0 and .Net Framework 4.7.1 |
+| 1.3.0  | Added target frameworks net6 & net8. Newtonsoft.Json downgraded to 12.0.1. Updated other dependencies to latest. |
